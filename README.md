@@ -4,15 +4,26 @@ A Claude Code skill for writing correct, idiomatic [Apple MLX](https://github.co
 
 ## Installation
 
-```bash
-claude skill install github:tkwn2080/mlx-dev-skill
+### Option 1: Plugin Marketplace (Recommended)
+
+In Claude Code, run:
+
+```
+/plugin marketplace add tkwn2080/mlx-dev-skill
 ```
 
-Or manually clone to your skills directory:
+The skill will be automatically available after adding the marketplace.
+
+### Option 2: Manual Installation
+
+Clone and copy to your personal skills directory:
 
 ```bash
-git clone https://github.com/tkwn2080/mlx-dev-skill.git ~/.claude/skills/mlx-dev
+git clone https://github.com/tkwn2080/mlx-dev-skill.git
+cp -r mlx-dev-skill/skills/mlx-dev ~/.claude/skills/
 ```
+
+Then restart Claude Code.
 
 ## What This Skill Provides
 
@@ -42,19 +53,25 @@ When working with MLX, Claude will automatically:
 
 ```
 mlx-dev-skill/
-├── SKILL.md                    # Main skill entry point
-├── references/
-│   ├── array-indexing.md       # Indexing patterns and gotchas
-│   ├── compilation.md          # mx.compile patterns
-│   ├── dtypes.md               # Data type support
-│   ├── error-decoder.md        # Error → solution mapping
-│   ├── gradients.md            # Autodiff patterns
-│   ├── memory-management.md    # Memory debugging
-│   ├── neural-networks.md      # nn module reference
-│   ├── pytorch-migration.md    # PyTorch conversion guide
-│   └── random.md               # Random number patterns
-└── scripts/
-    └── check_memory.py         # Memory debugging utility
+├── .claude-plugin/
+│   └── plugin.json             # Plugin metadata
+├── skills/
+│   └── mlx-dev/
+│       ├── SKILL.md            # Main skill entry point
+│       ├── references/
+│       │   ├── array-indexing.md
+│       │   ├── compilation.md
+│       │   ├── dtypes.md
+│       │   ├── error-decoder.md
+│       │   ├── gradients.md
+│       │   ├── memory-management.md
+│       │   ├── neural-networks.md
+│       │   ├── pytorch-migration.md
+│       │   └── random.md
+│       └── scripts/
+│           └── check_memory.py
+├── README.md
+└── LICENSE
 ```
 
 ## Memory Debugging Utility
