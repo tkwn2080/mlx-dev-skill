@@ -37,9 +37,9 @@ def format_bytes(bytes_val: int) -> str:
 def get_memory_stats() -> dict:
     """Get current MLX memory statistics."""
     return {
-        "active": mx.metal.get_active_memory(),
-        "peak": mx.metal.get_peak_memory(),
-        "cache": mx.metal.get_cache_memory(),
+        "active": mx.get_active_memory(),
+        "peak": mx.get_peak_memory(),
+        "cache": mx.get_cache_memory(),
     }
 
 
@@ -66,12 +66,12 @@ def main():
     args = parser.parse_args()
 
     if args.reset_peak:
-        mx.metal.reset_peak_memory()
+        mx.reset_peak_memory()
         print("Peak memory counter reset.")
 
     if args.clear:
         before = get_memory_stats()
-        mx.metal.clear_cache()
+        mx.clear_cache()
         after = get_memory_stats()
         print("Cache cleared.")
         print(f"  Before: Cache = {format_bytes(before['cache'])}")

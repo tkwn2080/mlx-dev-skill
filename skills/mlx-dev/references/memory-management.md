@@ -12,21 +12,21 @@
 ## Memory APIs
 
 ```python
-mx.metal.get_active_memory()     # Current usage (bytes)
-mx.metal.get_peak_memory()       # Maximum reached (bytes)
-mx.metal.get_cache_memory()      # Cached but reusable (bytes)
-mx.metal.clear_cache()           # Free cached allocations
-mx.metal.set_memory_limit(bytes) # Set ceiling
-mx.metal.reset_peak_memory()     # Reset peak counter
+mx.get_active_memory()     # Current usage (bytes)
+mx.get_peak_memory()       # Maximum reached (bytes)
+mx.get_cache_memory()      # Cached but reusable (bytes)
+mx.clear_cache()           # Free cached allocations
+mx.set_memory_limit(bytes) # Set ceiling
+mx.reset_peak_memory()     # Reset peak counter
 ```
 
 ### Human-Readable Helper
 
 ```python
 def memory_stats():
-    active = mx.metal.get_active_memory() / 1e9
-    peak = mx.metal.get_peak_memory() / 1e9
-    cache = mx.metal.get_cache_memory() / 1e9
+    active = mx.get_active_memory() / 1e9
+    peak = mx.get_peak_memory() / 1e9
+    cache = mx.get_cache_memory() / 1e9
     print(f"Active: {active:.2f}GB, Peak: {peak:.2f}GB, Cache: {cache:.2f}GB")
 ```
 
@@ -42,7 +42,7 @@ mx.eval(a)
 del a
 # Memory still held! Only reused for future allocations
 
-mx.metal.clear_cache()  # Explicitly release
+mx.clear_cache()  # Explicitly release
 ```
 
 ### Gradient Accumulation Leaks Without Eval
@@ -105,9 +105,9 @@ uv run python scripts/check_memory.py --clear
 import mlx.core as mx
 
 def debug_memory(label=""):
-    active = mx.metal.get_active_memory() / 1e9
-    peak = mx.metal.get_peak_memory() / 1e9
-    cache = mx.metal.get_cache_memory() / 1e9
+    active = mx.get_active_memory() / 1e9
+    peak = mx.get_peak_memory() / 1e9
+    cache = mx.get_cache_memory() / 1e9
     print(f"[{label}] Active: {active:.2f}GB, Peak: {peak:.2f}GB, Cache: {cache:.2f}GB")
 
 # Use throughout training

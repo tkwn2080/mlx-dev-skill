@@ -95,8 +95,8 @@ mx.enable_compile()
 
 ```python
 def debug_memory(label=""):
-    active = mx.metal.get_active_memory() / 1e9
-    peak = mx.metal.get_peak_memory() / 1e9
+    active = mx.get_active_memory() / 1e9
+    peak = mx.get_peak_memory() / 1e9
     print(f"[{label}] Active: {active:.2f}GB, Peak: {peak:.2f}GB")
 
 debug_memory("before")
