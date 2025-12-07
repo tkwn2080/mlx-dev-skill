@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "mlx-dev",
-      "source": "../",
+      "source": "./",
       "description": "Claude Code skill for writing idiomatic Apple MLX code on Apple Silicon",
       "version": "1.0.0",
       "author": {
